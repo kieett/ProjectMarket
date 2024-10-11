@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt lại Mật Khẩu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        input[type="text"], input[type="password"], button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #ca206c;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #a51956;
+        }
+        #message {
+            text-align: center;
+            margin-top: 10px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Đặt lại Mật Khẩu</h1>
+        <form id="resetPasswordForm">
+            <input type="text" id="username" name="username" placeholder="Nhập tài khoản của bạn" required>
+            <button type="submit" id="checkAccountButton">Kiểm tra tài khoản</button>
+        </form>
+        <div id="resetSection" style="display:none;">
+            <input type="password" id="new_password" name="new_password" placeholder="Mật khẩu mới" required>
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="Xác nhận mật khẩu mới" required>
+            <button type="button" id="resetPasswordButton">Đặt lại mật khẩu</button>
+
+            <label for="showPassword">
+                <input type="checkbox" id="showPassword" onclick="togglePassword()"> Hiển thị mật khẩu
+            </label>
+        </div>
+        <div id="message"></div>
+    </div>
+
+    <script>
+        document.getElementById('resetPasswordForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var username = document.getElementById('username').value;
+
+            fetch('reset_password.php', { 
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({ action: 'check_account', taikhoan: username })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('resetSection').style.display = 'block';
+                    showMessage(data.message);
+                } else {
+                    showMessage(data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showMessage("Có lỗi xảy ra. Vui lòng thử lại sau.");
+            });
+        });
+
+        document.getElementById('resetPasswordButton').addEventListener('click', function() {
+            var username = document.getElementById('username').value;
+            var newPassword = document.getElementById('new_password').value;
+            var confirmPassword = document.getElementById('confirm_password').value;
+
+            fetch('reset_password.php', { 
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({ action: 'reset_password', taikhoan: username, new_password: newPassword, confirm_password: confirmPassword })
+            })
+            .then(response => response.json())
+            .then(data => {
+                showMessage(data.message);
+                if (data.success) {
+                  
+                    document.getElementById('resetPasswordForm').reset();
+                    document.getElementById('resetSection').style.display = 'none';
+                    
+                    setTimeout(function() {
+                        window.location.href = 'http://localhost/website-py/Graphics/login/Dangnhap.html';
+                    }, 2000);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showMessage("Có lỗi xảy ra. Vui lòng thử lại sau.");
+            });
+        });
+
+        function showMessage(message) {
+            var messageDiv = document.getElementById('message');
+            messageDiv.innerText = message;
+            messageDiv.style.display = 'block'; 
+            setTimeout(function() {
+                messageDiv.style.display = 'none';
+            }, 1000);
+        }
+
+        function togglePassword() {
+            var matKhau = document.getElementById('new_password');
+            var matKhau2 = document.getElementById('confirm_password');
+            var showPassword = document.getElementById('showPassword');
+            if (showPassword.checked) {
+                matKhau.type = "text";
+                matKhau2.type = "text";
+            } else {
+                matKhau.type = "password";
+                matKhau2.type = "password";
+            }
+        }
+    </script>
+</body>
+</html>

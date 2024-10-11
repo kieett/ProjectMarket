@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Siêu Thị</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Quản Lý Siêu Thị</h1>
+    </header>
+
+    <main>
+        <section id="categories">
+            <h2>Quản Lý Nhân Viên</h2>
+            
+            <label for="search-employee">Tìm Kiếm Nhân Viên:</label>
+            <input type="text" id="search-employee" onkeyup="filterTable('employeeTable', this.value)" placeholder="Nhập mã nhân viên...">
+            
+            <h3>Nhân Viên</h3>
+            <table id="employeeTable">
+                <thead>
+                    <tr>
+                        <th>Mã Nhân Viên</th>
+                        <th>Tên Nhân Viên</th>
+                        <th>Chức Vụ</th>
+                        <th>Số Điện Thoại</th>
+                        <th>Địa Chỉ</th>
+                        <th>Hành Động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                </tbody>
+            </table>
+
+            <h3>Thêm Nhân Viên Mới</h3>
+            <form id="add-employee-form">
+                <label for="employee-id">Mã Nhân Viên:</label><br>
+                <input type="text" id="employee-id" placeholder="Nhập ID nhân viên..." required><br>
+                <label for="employee-name">Tên Nhân Viên:</label><br>
+                <input type="text" id="employee-name" placeholder="Nhập tên nhân viên..." required><br>
+                <label for="employee-position">Chức Vụ:</label><br>
+                <input type="text" id="employee-position" placeholder="Nhập chức vụ..." required><br>
+                <label for="employee-phone">Số Điện Thoại:</label><br>
+                <input type="tel" id="employee-phone" placeholder="Nhập số điện thoại..." required><br>
+                <label for="employee-address">Địa Chỉ:</label><br>
+                <input type="text" id="employee-address" placeholder="Nhập địa chỉ..." required><br>
+                <br><button type="button" onclick="addEmployee()">Thêm Nhân Viên</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p> 2024 Quản Lý Siêu Thị</p>
+    </footer>
+
+    <script>
+        let editingRow = null; 
+        window.onload = function() {
+            loadEmployees();
+        };
+
+        function loadEmployees() {
+            const employees = JSON.parse(localStorage.getItem('employees')) || [];
+            const tableBody = document.getElementById("employeeTable").getElementsByTagName("tbody")[0];
+            tableBody.innerHTML = ''; 
+
+            employees.forEach(emp => {
+                const newRow = tableBody.insertRow();
+                newRow.innerHTML = `
+                    <td>${emp.id}</td>
+                    <td>${emp.name}</td>
+                    <td>${emp.position}</td>
+                    <td>${emp.phone}</td>
+                    <td>${emp.address}</td>
+                    <td>
+                        <button onclick="editEmployee(this)">Sửa</button>
+                        <button onclick="deleteEmployee(this)">Xóa</button>
+                    </td>
+                `;
+            });
+        }
+
+        function filterTable(tableId, searchValue) {
+            let table = document.getElementById(tableId);
+            let rows = table.getElementsByTagName("tr");
+            searchValue = searchValue.toLowerCase();
+            for (let i = 1; i < rows.length; i++) {
+                let cells = rows[i].getElementsByTagName("td");
+                let match = false;
+                for (let j = 0; j < cells.length - 1; j++) {
+                    if (cells[j].innerText.toLowerCase().includes(searchValue)) {
+                        match = true;
+                        break;
+                    }
+                }
+                rows[i].style.display = match ? "" : "none";
+            }
+        }
+
+        function addEmployee() {
+            let id = document.getElementById("employee-id").value;
+            let name = document.getElementById("employee-name").value;
+            let position = document.getElementById("employee-position").value;
+            let phone = document.getElementById("employee-phone").value;
+            let address = document.getElementById("employee-address").value;
+        
+            if (id && name && position && phone && address) {
+                const employees = JSON.parse(localStorage.getItem('employees')) || [];
+                
+                // Kiểm tra xem mã nhân viên có trùng lặp không
+                const existingEmployee = employees.find(emp => emp.id === id);
+                if (existingEmployee) {
+                    alert("Mã nhân viên đã tồn tại. Vui lòng nhập mã khác.");
+                    return;
+                }
+        
+                employees.push({ id, name, position, phone, address });
+                localStorage.setItem('employees', JSON.stringify(employees));
+                loadEmployees();
+                document.getElementById("add-employee-form").reset();
+            } else {
+                alert("Vui lòng điền đầy đủ thông tin.");
+            }
+        }        
+
+        function deleteEmployee(button) {
+            if (confirm("Bạn có chắc muốn xóa nhân viên này?")) {
+                let row = button.parentElement.parentElement;
+                let id = row.cells[0].innerText;
+                let employees = JSON.parse(localStorage.getItem('employees')) || [];
+                employees = employees.filter(emp => emp.id !== id);
+                localStorage.setItem('employees', JSON.stringify(employees));
+        
+                // Xóa hàng từ bảng
+                row.parentElement.removeChild(row);
+                updateEmployeeCount(); 
+            }
+        }
+         
+        function editEmployee(button) {
+            let row = button.parentElement.parentElement;
+            editingRow = row; 
+            let id = row.cells[0].innerText;
+            let name = row.cells[1].innerText;
+            let position = row.cells[2].innerText;
+            let phone = row.cells[3].innerText;
+            let address = row.cells[4].innerText;
+
+            document.getElementById("employee-id").value = id;
+            document.getElementById("employee-name").value = name;
+            document.getElementById("employee-position").value = position;
+            document.getElementById("employee-phone").value = phone;
+            document.getElementById("employee-address").value = address;
+            button.innerText = "Cập Nhật";
+            button.setAttribute("onclick", "updateEmployee(this)");
+        }
+
+        function updateEmployee(button) {
+            let row = editingRow;
+            let id = row.cells[0].innerText; 
+            let name = document.getElementById("employee-name").value;
+            let position = document.getElementById("employee-position").value;
+            let phone = document.getElementById("employee-phone").value;
+            let address = document.getElementById("employee-address").value;
+        
+            if (name && position && phone && address) {
+                row.cells[1].innerText = name;
+                row.cells[2].innerText = position;
+                row.cells[3].innerText = phone;
+                row.cells[4].innerText = address;
+        
+                let employees = JSON.parse(localStorage.getItem('employees')) || [];
+                employees = employees.map(emp => 
+                    emp.id === id ? { id, name, position, phone, address } : emp
+                );
+                localStorage.setItem('employees', JSON.stringify(employees));
+                editingRow = null;
+        
+                button.innerText = "Sửa";
+                button.setAttribute("onclick", "editEmployee(this)");
+                document.getElementById("add-employee-form").reset();
+            } else {
+                alert("Vui lòng điền đầy đủ thông tin.");
+            }
+        }
+
+        window.onload = function() {
+            loadEmployees();
+            updateEmployeeCount();
+        };
+        
+    </script>
+</body>
+</html>

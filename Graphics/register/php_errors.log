@@ -1,0 +1,288 @@
+[23-Sep-2024 19:50:11 Europe/Berlin] Kết nối database thành công
+[23-Sep-2024 19:50:11 Europe/Berlin] POST data: Array
+(
+    [taiKhoan] => admin
+    [matKhau] => adad1
+    [xacNhanMatKhau] => adad1
+    [hoTen] => Vanh
+    [email] => ngothuhaa4@gmail.com
+    [soDienThoai] => 09864124531
+    [diaChi] => hưng yên
+)
+
+[23-Sep-2024 19:50:11 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'hoTen' in 'field list' in C:\xampp\htdocs\website-py\Graphics\register\dangky.php:100
+Stack trace:
+#0 C:\xampp\htdocs\website-py\Graphics\register\dangky.php(100): mysqli->prepare('INSERT INTO `cu...')
+#1 {main}
+  thrown in C:\xampp\htdocs\website-py\Graphics\register\dangky.php on line 100
+[23-Sep-2024 19:50:16 Europe/Berlin] Kết nối database thành công
+[23-Sep-2024 19:50:16 Europe/Berlin] POST data: Array
+(
+    [taiKhoan] => admin
+    [matKhau] => adad1
+    [xacNhanMatKhau] => adad1
+    [hoTen] => Vanh
+    [email] => ngothuhaa4@gmail.com
+    [soDienThoai] => 09864124531
+    [diaChi] => hưng yên
+)
+
+[23-Sep-2024 19:50:16 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'hoTen' in 'field list' in C:\xampp\htdocs\website-py\Graphics\register\dangky.php:100
+Stack trace:
+#0 C:\xampp\htdocs\website-py\Graphics\register\dangky.php(100): mysqli->prepare('INSERT INTO `cu...')
+#1 {main}
+  thrown in C:\xampp\htdocs\website-py\Graphics\register\dangky.php on line 100
+[23-Sep-2024 19:51:45 Europe/Berlin] Kết nối database thành công
+[23-Sep-2024 19:51:45 Europe/Berlin] POST data: Array
+(
+    [taiKhoan] => admin
+    [matKhau] => adad1
+    [xacNhanMatKhau] => adad1
+    [hoTen] => Vanh
+    [email] => ngothuhaa4@gmail.com
+    [soDienThoai] => 09864124531
+    [diaChi] => hưng yên
+)
+
+[23-Sep-2024 19:51:46 Europe/Berlin] Chèn dữ liệu thành công. ID: 12
+[24-Sep-2024 10:50:14 Europe/Berlin] Kết nối database thành công
+[24-Sep-2024 10:50:14 Europe/Berlin] POST data: Array
+(
+    [taiKhoan] => gacon
+    [matKhau] => 123
+    [xacNhanMatKhau] => 123
+    [hoTen] => an
+    [email] => ngothuhaa4@gmail.com
+    [soDienThoai] => 09864124531
+    [diaChi] => hà nội
+)
+
+[24-Sep-2024 10:50:14 Europe/Berlin] Chèn dữ liệu thành công. ID: 13
+[24-Sep-2024 11:11:18 Europe/Berlin] Kết nối database thành công
+[24-Sep-2024 11:11:18 Europe/Berlin] POST data: Array
+(
+    [taiKhoan] => hoangdao
+    [matKhau] => 123
+    [xacNhanMatKhau] => 123
+    [hoTen] => Việt Hoàng
+    [email] => hoangdaoancuc@gmail.com
+    [soDienThoai] => 09864124531
+    [diaChi] => bắc giang
+)
+
+[24-Sep-2024 11:11:18 Europe/Berlin] Chèn dữ liệu thành công. ID: 14
+[24-Sep-2024 11:15:39 Europe/Berlin] Kết nối database thành công
+[24-Sep-2024 11:15:39 Europe/Berlin] POST data: Array
+(
+    [taiKhoan] => hoangdao01
+    [matKhau] => 1234
+    [xacNhanMatKhau] => 1234
+    [hoTen] => Vanh
+    [email] => 22111060604@hunre.edu.vn
+    [soDienThoai] => 09864124535
+    [diaChi] => hưng yên
+)
+
+[24-Sep-2024 11:15:39 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'matkhau' cannot be null in C:\xampp\htdocs\website-py\Graphics\register\dangky.php:107
+Stack trace:
+#0 C:\xampp\htdocs\website-py\Graphics\register\dangky.php(107): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\website-py\Graphics\register\dangky.php on line 107
+[24-Sep-2024 11:15:40 Europe/Berlin] Kết nối database thành công
+[24-Sep-2024 11:15:40 Europe/Berlin] POST data: Array
+(
+    [taiKhoan] => hoangdao01
+    [matKhau] => 1234
+    [xacNhanMatKhau] => 1234
+    [hoTen] => Vanh
+    [email] => 22111060604@hunre.edu.vn
+    [soDienThoai] => 09864124535
+    [diaChi] => hưng yên
+)
+
+[24-Sep-2024 11:15:40 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'matkhau' cannot be null in C:\xampp\htdocs\website-py\Graphics\register\dangky.php:107
+Stack trace:
+#0 C:\xampp\htdocs\website-py\Graphics\register\dangky.php(107): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\website-py\Graphics\register\dangky.php on line 107
+[24-Sep-2024 11:15:41 Europe/Berlin] Kết nối database thành công
+[24-Sep-2024 11:15:41 Europe/Berlin] POST data: Array
+(
+    [taiKhoan] => hoangdao01
+    [matKhau] => 1234
+    [xacNhanMatKhau] => 1234
+    [hoTen] => Vanh
+    [email] => 22111060604@hunre.edu.vn
+    [soDienThoai] => 09864124535
+    [diaChi] => hưng yên
+)
+
+[24-Sep-2024 11:15:41 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'matkhau' cannot be null in C:\xampp\htdocs\website-py\Graphics\register\dangky.php:107
+Stack trace:
+#0 C:\xampp\htdocs\website-py\Graphics\register\dangky.php(107): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\website-py\Graphics\register\dangky.php on line 107
+[24-Sep-2024 11:15:41 Europe/Berlin] Kết nối database thành công
+[24-Sep-2024 11:15:41 Europe/Berlin] POST data: Array
+(
+    [taiKhoan] => hoangdao01
+    [matKhau] => 1234
+    [xacNhanMatKhau] => 1234
+    [hoTen] => Vanh
+    [email] => 22111060604@hunre.edu.vn
+    [soDienThoai] => 09864124535
+    [diaChi] => hưng yên
+)
+
+[24-Sep-2024 11:15:41 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'matkhau' cannot be null in C:\xampp\htdocs\website-py\Graphics\register\dangky.php:107
+Stack trace:
+#0 C:\xampp\htdocs\website-py\Graphics\register\dangky.php(107): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\website-py\Graphics\register\dangky.php on line 107
+[24-Sep-2024 11:16:25 Europe/Berlin] Kết nối database thành công
+[24-Sep-2024 11:16:25 Europe/Berlin] POST data: Array
+(
+    [taiKhoan] => hoangdao01
+    [matKhau] => 1234
+    [xacNhanMatKhau] => 1234
+    [hoTen] => Vanh
+    [email] => 22111060604@hunre.edu.vn
+    [soDienThoai] => 09864124535
+    [diaChi] => hưng yên
+)
+
+[24-Sep-2024 11:16:25 Europe/Berlin] Chèn dữ liệu thành công. ID: 15
+[24-Sep-2024 11:36:39 Europe/Berlin] Kết nối database thành công
+[24-Sep-2024 11:36:39 Europe/Berlin] POST data: Array
+(
+    [taiKhoan] => conga
+    [matKhau] => 1234
+    [xacNhanMatKhau] => 1234
+    [hoTen] => Việt Hoàng B
+    [email] => ngothuhaa4@gmail.com
+    [soDienThoai] => 09864124531
+    [diaChi] => Đằ Nẵng
+)
+
+[24-Sep-2024 11:36:39 Europe/Berlin] Chèn dữ liệu thành công. ID: 16
+[24-Sep-2024 12:29:24 Europe/Berlin] Kết nối database thành công
+[24-Sep-2024 12:29:24 Europe/Berlin] POST data: Array
+(
+    [taiKhoan] => abc
+    [matKhau] => 123456
+    [xacNhanMatKhau] => 123456
+    [hoTen] => Vanh
+    [email] => maytinha2cb@gmail.com
+    [soDienThoai] => 09765436822
+    [diaChi] => hà nội
+)
+
+[24-Sep-2024 12:29:24 Europe/Berlin] Chèn dữ liệu thành công. ID: 17
+[24-Sep-2024 12:29:46 Europe/Berlin] Kết nối database thành công
+[24-Sep-2024 12:29:46 Europe/Berlin] POST data: Array
+(
+    [taiKhoan] => abc2
+    [matKhau] => 123456
+    [xacNhanMatKhau] => 123456
+    [hoTen] => Nguyễn Văn A
+    [email] => kietcathai04@gmail.com
+    [soDienThoai] => 09864124535
+    [diaChi] => hưng yên
+)
+
+[24-Sep-2024 12:29:46 Europe/Berlin] Chèn dữ liệu thành công. ID: 18
+[24-Sep-2024 12:58:20 Europe/Berlin] Kết nối database thành công
+[24-Sep-2024 12:58:20 Europe/Berlin] POST data: Array
+(
+    [taiKhoan] => user1
+    [matKhau] => abc
+    [xacNhanMatKhau] => abc
+    [hoTen] => an
+    [email] => maytinha2cb@gmail.com
+    [soDienThoai] => 09864124531
+    [diaChi] => baha
+)
+
+[24-Sep-2024 12:58:20 Europe/Berlin] Chèn dữ liệu thành công. ID: 19
+[24-Sep-2024 13:00:12 Europe/Berlin] Kết nối database thành công
+[24-Sep-2024 13:00:12 Europe/Berlin] POST data: Array
+(
+    [taiKhoan] => user2
+    [matKhau] => 12345
+    [xacNhanMatKhau] => 12345
+    [hoTen] => Nguyễn Văn A
+    [email] => hoangdaoancuc@gmail.com
+    [soDienThoai] => 09864124536
+    [diaChi] => ahaa
+)
+
+[24-Sep-2024 13:00:12 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in C:\xampp\htdocs\website-py\Graphics\register\dangky.php:102
+Stack trace:
+#0 C:\xampp\htdocs\website-py\Graphics\register\dangky.php(102): mysqli_stmt->bind_param('ssssss', 'Nguy\xE1\xBB\x85n V\xC4\x83n A', 'hoangdaoancuc@g...', 'ahaa', '09864124536', 'user2')
+#1 {main}
+  thrown in C:\xampp\htdocs\website-py\Graphics\register\dangky.php on line 102
+[24-Sep-2024 13:01:28 Europe/Berlin] Kết nối database thành công
+[24-Sep-2024 13:01:28 Europe/Berlin] POST data: Array
+(
+    [taiKhoan] => user2
+    [matKhau] => 12345
+    [xacNhanMatKhau] => 12345
+    [hoTen] => Nguyễn Văn A
+    [email] => hoangdaoancuc@gmail.com
+    [soDienThoai] => 09864124536
+    [diaChi] => ahaa
+)
+
+[24-Sep-2024 13:01:28 Europe/Berlin] Chèn dữ liệu thành công. ID: 20
+[24-Sep-2024 15:04:49 Europe/Berlin] Kết nối database thành công
+[24-Sep-2024 15:04:49 Europe/Berlin] POST data: Array
+(
+    [taiKhoan] => hoangdao
+    [matKhau] => 123456
+    [xacNhanMatKhau] => 123456
+    [hoTen] => Việt Hoàng
+    [email] => hoangdaoancuc@gmail.com
+    [soDienThoai] => 09765436822
+    [diaChi] => bắc giang
+)
+
+[24-Sep-2024 15:04:49 Europe/Berlin] Chèn dữ liệu thành công. ID: 21
+[26-Sep-2024 14:06:16 Europe/Berlin] Kết nối database thành công
+[26-Sep-2024 14:06:16 Europe/Berlin] POST data: Array
+(
+    [taiKhoan] => hoangdao
+    [matKhau] => 1234
+    [xacNhanMatKhau] => 1234
+    [hoTen] => Việt Hoàng
+    [email] => hoangdaoancuc@gmail.com
+    [soDienThoai] => 09864124535
+    [diaChi] => bắc giang
+)
+
+[26-Sep-2024 14:06:16 Europe/Berlin] Chèn dữ liệu thành công. ID: 23
+[26-Sep-2024 14:06:53 Europe/Berlin] Kết nối database thành công
+[26-Sep-2024 14:06:53 Europe/Berlin] POST data: Array
+(
+    [taiKhoan] => admin
+    [matKhau] => 123
+    [xacNhanMatKhau] => 123
+    [hoTen] => Nguyễn Văn A
+    [email] => maytinha2cb@gmail.com
+    [soDienThoai] => 09864124536
+    [diaChi] => hà nội
+)
+
+[26-Sep-2024 14:06:53 Europe/Berlin] Chèn dữ liệu thành công. ID: 24
+[30-Sep-2024 18:06:55 Europe/Berlin] Kết nối database thành công
+[30-Sep-2024 18:06:55 Europe/Berlin] POST data: Array
+(
+    [taiKhoan] => gacon
+    [matKhau] => 12345
+    [xacNhanMatKhau] => 12345
+    [hoTen] => Vanh
+    [email] => 22111060604@hunre.edu.vn
+    [soDienThoai] => 09864124531
+    [diaChi] => Đằ Nẵng
+)
+
+[30-Sep-2024 18:06:55 Europe/Berlin] Chèn dữ liệu thành công. ID: 25

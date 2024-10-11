@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Siêu Thị</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Quản Lý Siêu Thị</h1>
+    </header>
+
+    <main>
+        <section id="categories">
+            <h2>Quản Lý Hóa Đơn</h2>
+            
+            <label for="search-invoice">Tìm Kiếm Hóa Đơn:</label>
+            <input type="text" id="search-invoice" onkeyup="filterTable('invoiceTable', this.value)" placeholder="Nhập mã hóa đơn...">
+            
+            <h3>Hóa Đơn</h3>
+            <table id="invoiceTable">
+                <thead>
+                    <tr>
+                        <th>Mã Hóa Đơn</th>
+                        <th>Mã Sản Phẩm</th>
+                        <th>Mã Khách Hàng</th>
+                        <th>Tổng Tiền</th>
+                        <th>Trạng Thái</th>
+                        <th>Ngày Nhập</th>
+                        <th>Ghi Chú</th>
+                        <th>Hành Động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dữ liệu hóa đơn sẽ được nạp từ database -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p> 2024 Quản Lý Siêu Thị</p>
+    </footer>
+
+    <script>
+        function filterTable(tableId, searchValue) {
+            let table = document.getElementById(tableId);
+            let rows = table.getElementsByTagName("tr");
+            searchValue = searchValue.toLowerCase();
+            for (let i = 1; i < rows.length; i++) {
+                let cells = rows[i].getElementsByTagName("td");
+                let match = false;
+                if (cells.length > 0) {
+                    if (cells[0].innerText.toLowerCase().includes(searchValue)) {
+                        match = true;
+                    }
+                }
+                rows[i].style.display = match ? "" : "none";
+            }
+        }
+    </script>
+</body>
+</html>

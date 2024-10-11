@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ Sơ Của Tôi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1f1f1f;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #262626;
+            padding: 20px;
+        }
+
+        .sidebar .user-info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .sidebar .username {
+            display: block;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 10px 0;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .sidebar ul a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .sidebar ul a:hover {
+            color: #756969;
+        }
+
+        .sidebar ul li.active {
+            background-color: #333;
+            color: red;
+            font-weight: bold;
+        }
+
+        .profile-section {
+            flex: 1;
+            background-color: #181818;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-container {
+            background-color: #222;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #444;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            width: 80%;
+        }
+
+        .profile-container h2 {
+            margin-top: 0;
+        }
+
+        .profile-container form {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .profile-info {
+            width: 60%;
+        }
+
+        .profile-info label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .profile-info input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .profile-info a {
+            color: #00b0ff;
+            margin-left: 10px;
+        }
+
+        .profile-info button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .profile-info button:hover {
+            background-color: #756969;
+        }
+
+        .profile-image {
+            text-align: center;
+            transform: translateX(30%);
+        }
+
+        .profile-image img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            
+        }
+
+        .profile-image input[type="file"] {
+            display: block;
+            margin: 10px 0;
+            
+        }
+
+        .profile-image p {
+            font-size: 12px;
+            color: #bbb;
+            
+        }
+
+        .back-button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 6px 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            display: block;
+            width: 80px; 
+            height: 20px;
+            text-decoration: none; 
+            transform: translate(10%,950%);
+            font-size: 14px;
+        }
+        .back-button:hover {
+            background-color: #756969;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="user-info">
+                <span class="username" id="usernameDisplay"></span> 
+                <h4>Sửa Hồ Sơ</h4>
+            </div>
+            <ul>
+                <li class="active">Hồ Sơ</li>
+                <a href="#"><li>Thanh Toán</li></a>
+                <a href="change_password.php"><li>Đổi Mật Khẩu</li></a>
+                <a href="#"><li>Đơn Mua</li></a>      
+            </ul>
+        </div>
+
+        <div class="profile-section">
+            <div class="profile-container">
+                <h2>Hồ Sơ Của Tôi</h2>
+                <p>Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
+                <h3>Xin chào !!! </h3> 
+                <form>
+                    <div class="profile-info">
+
+                        <label for="fullname">Họ và tên</label>
+                        <input type="text" id="fullname" value="" required>
+
+                        <label for="address">Địa chỉ</label>
+                        <input type="text" id="address" value="" required>
+
+                        <label for="email">Email</label>
+                        <input type="text" id="email" value="" required>
+
+                        <label for="phone">Số điện thoại</label>
+                        <input type="text" id="phone" value="" required>
+
+                        <button type="submit">Lưu</button>
+                    </div>
+                    <div class="profile-image">
+                        <img id="profileImage" src="avatar-placeholder.png" alt="Avatar">
+                        <input type="file" id="file-upload" accept="image/*">
+                        <p>Dung lượng file tối đa 10 MB<br>Định dạng: JPEG, PNG</p>
+                    </div>
+
+                    <a href="http://localhost/website-py/Graphics/main/Giaodienchinh.php" class="back-button">Quay về </a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Lấy thông tin người dùng
+            fetch('user_profile.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        
+                        document.getElementById('usernameDisplay').innerText = data.taikhoan; 
+                        document.getElementById('fullname').value = data.data.name; 
+                        document.getElementById('address').value = data.data.address; 
+                        document.getElementById('email').value = data.data.email; 
+                        document.getElementById('phone').value = data.data.sdt; 
+                        document.getElementById('profileImage').src = data.data.img ? data.data.img : 'avatar-placeholder.png';
+
+                        if (data.data.img && data.data.img !== '') {
+                            document.getElementById('profileImage').src = 'uploads/' + data.data.img;  
+                        } else {
+                            document.getElementById('profileImage').src = 'avatar-placeholder.png';
+                        }
+                    } else {
+                        alert(data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+
+        // Xử lý lưu thông tin
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var fullname = document.getElementById('fullname').value;
+            var address = document.getElementById('address').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+            var fileInput = document.getElementById('file-upload');
+            var formData = new FormData();
+        
+            formData.append('name', fullname);
+            formData.append('address', address);
+            formData.append('email', email);
+            formData.append('sdt', phone);
+            if (fileInput.files.length > 0) {
+                formData.append('img', fileInput.files[0]); 
+            }
+        
+            fetch('update_user.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Thông tin đã được cập nhật thành công.');
+                    
+                    if (fileInput.files.length > 0) {
+                        var reader = new FileReader();
+                        reader.onload = function(e) {
+                            document.getElementById('profileImage').src = e.target.result;
+                        }
+                        reader.readAsDataURL(fileInput.files[0]);
+                    }
+                } else {
+                    alert(data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
